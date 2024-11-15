@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="data1" name="birthday" />
+    <br />
+    <br />
+    <label for="birthday">Birthday 2:</label>
+    <input type="date" id="data2" name="birthday" />
+    <br />
+    <br />
+    <button type="submit" onclick="calcola()">Submit</button><br />
+    <br />
+    <div id="differenza">Differenza:</div>
+
+    <script>
+      const data1 = document.getElementById("data1");
+      const data2 = document.getElementById("data2");
+
+      function calcola() {
+     
+        try {
+          if (
+            new Date(data1.value).getTime() > new Date(data2.value).getTime()
+          ) {
+            throw new Error("seconda data minore");
+          }else{
+            let differenza = new Date(data2.value).getTime() - new Date(data1.value).getTime()
+            document.getElementById("differenza").innerHTML = differenza / (1000 * 60 * 60 * 24)
+          }
+        } catch (error) {
+          console.error(error.message);
+        }
+
+        console.log(new Date(data1.value));
+        console.log(new Date(data2.value));
+      }
+    </script>
+  </body>
+</html>
