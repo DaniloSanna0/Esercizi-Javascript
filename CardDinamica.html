@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const cards = [
+    {
+        title: "Esplora la Natura",
+        description: "Scopri luoghi unici e spettacolari.",
+        image: "https://example.com/nature.jpg",
+        action: {
+            label: "Scopri di più",
+            url: "https://example.com/explore"
+        }
+    },
+    {
+        title: "Arte e Cultura",
+        description: "Immergiti nella bellezza dell'arte e della storia.",
+        image: "https://example.com/art.jpg",
+        action: {
+            label: "Scopri di più",
+            url: "https://example.com/art"
+        }
+    },
+    {
+        title: "Viaggi Avventura",
+        description: "Vivi esperienze uniche e avventurose.",
+        image: "https://example.com/adventure.jpg",
+        action: {
+            label: "Esplora ora",
+            url: "https://example.com/adventure"
+        }
+    },
+    {
+        title: "Cucina Locale",
+        description: "Assapora i piatti tipici di ogni regione.",
+        image: "https://example.com/food.jpg",
+        action: {
+            label: "Guarda il menu",
+            url: "https://example.com/food"
+        }
+    },
+    {
+        title: "Relax e Benessere",
+        description: "Trova pace e serenità con esperienze rilassanti.",
+        image: "https://example.com/relax.jpg",
+        action: {
+            label: "Prenota ora",
+            url: "https://example.com/relax"
+        }
+    }
+];
+
+    for (let i = 0; i < cards.length; i++) {
+        
+        let h2 = document.createElement("h2")
+        h2.innerHTML = cards[i].title
+        document.querySelector("body").appendChild(h2)
+
+        let p = document.createElement("p")
+        p.innerHTML = cards[i].description
+        document.querySelector("body").appendChild(p)
+
+        let image = document.createElement("img")
+        image.src = cards[i].image
+        image.alt = cards[i].image
+        document.querySelector("body").appendChild(image)
+    }
+
+
+    </script>
+  </body>
+</html>
