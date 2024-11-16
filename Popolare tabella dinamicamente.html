@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="tabella">
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Email</th>
+      <th>CodiceFiscale</th>
+      <th>Indirizzo</th>
+    </table>
+
+    <script>
+      const persone = [
+        {
+          ID: 1,
+          Nome: "Mario",
+          Cognome: "Rossi",
+          Email: "mario.rossi@email.com",
+          CodiceFiscale: "RSSMRA30A01H501Z",
+          Indirizzo: "Via Roma 10, 00100 Roma",
+        },
+        {
+          ID: 2,
+          Nome: "Luisa",
+          Cognome: "Bianchi",
+          Email: "luisa.bianchi@email.com",
+          CodiceFiscale: "BNCLSU25A45Z404A",
+          Indirizzo: "Corso Milano 5, 20100 Milano",
+        },
+      ];
+
+      const table = document.getElementById("tabella")
+
+      persone.forEach((element) => {
+        const row = document.createElement("tr")
+
+        Object.keys(element).forEach(key => {
+            console.log(element[key]);
+            const column = document.createElement("td")
+            const text = document.createTextNode(element[key])
+            column.appendChild(text)
+            row.appendChild(column)
+        })
+        table.appendChild(row)
+      })
+    </script>
+  </body>
+</html>
