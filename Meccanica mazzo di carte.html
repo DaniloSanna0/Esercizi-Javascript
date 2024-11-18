@@ -38,23 +38,23 @@
           //this.carte.pop()
           return pescata;
         }
-        mettiSotto() {
-          let sotto = this.carte[this.carte.length - 1];
-          this.carte.pop();
-          console.log(this.carte);
+        mettiSotto(carta) {
+        //   let sotto = this.carte[this.carte.length - 1];
+        //   this.carte.pop();
+        //   console.log(this.carte);
 
-          this.carte.unshift(sotto);
+          this.carte.unshift(carta);
         }
       }
 
       const deck = new Deck();
       console.log(deck.carte);
-
+  
       deck.mischia();
       console.log(deck.carte);
       deck.pesca();
       console.log(deck.carte);
-      deck.mettiSotto();
+      deck.mettiSotto("jolly");
       console.log(deck.carte);
 
     //   bonus
