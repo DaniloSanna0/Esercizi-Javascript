@@ -17,12 +17,25 @@
                 this.carte.sort((a,b) => 0.5 - Math.random())
             }
 
+            pesca(){
+
+                let pescata = this.carte[this.carte.length - 1]
+                console.log(pescata);
+                
+                this.carte.splice(-1);
+                return pescata
+            }
+
         }
 
         const deck = new Deck()
+        console.log(deck.carte);
+        
         deck.mischia()
+        console.log(deck.carte);
         deck.pesca()
-        deck.mettiSotto()
+        console.log(deck.carte);
+        // deck.mettiSotto()
 
     </script>
     
