@@ -1,43 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        class Deck{
-
-            constructor(){
-                this.carte = [1,2,3,4,5,6,7,8,9,10,'fante','donna','re','donna']               
-            }
-
-            mischia(){
-                this.carte.sort((a,b) => 0.5 - Math.random())
-            }
-
-            pesca(){
-
-                let pescata = this.carte[this.carte.length - 1]
-                console.log(pescata);
-                
-                this.carte.splice(-1);
-                return pescata
-            }
-
+      class Deck {
+        constructor() {
+          this.carte = [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            "fante",
+            "donna",
+            "re",
+            "donna",
+          ];
         }
 
-        const deck = new Deck()
-        console.log(deck.carte);
-        
-        deck.mischia()
-        console.log(deck.carte);
-        deck.pesca()
-        console.log(deck.carte);
-        // deck.mettiSotto()
+        mischia() {
+          this.carte.sort((a, b) => 0.5 - Math.random());
+        }
+
+        pesca() {
+          let pescata = this.carte[this.carte.length - 1];
+
+          this.carte.splice(-1);
+          //this.carte.pop()
+          return pescata;
+        }
+        mettiSotto() {
+          let sotto = this.carte[this.carte.length - 1];
+          this.carte.pop();
+          console.log(this.carte);
+
+          this.carte.unshift(sotto);
+        }
+      }
+
+      const deck = new Deck();
+      console.log(deck.carte);
+
+      deck.mischia();
+      console.log(deck.carte);
+      deck.pesca();
+      console.log(deck.carte);
+      deck.mettiSotto();
+      console.log(deck.carte);
+
+    //   bonus
+    //   let array = [2, 4, 6, 7, 8, 9, 5, 55, 15];
+
+    //   for (let i = 0; i < array.length; i++) {
+    //     if (array[i] % 5 === 0) {
+    //       console.log("cinque");
+    //     } else if (array[i] % 3 === 0) {
+    //       console.log("cinque");
+    //     } else if (array[i] % 5 === 0 && array[i] % 3 === 0) {
+    //       console.log("TRE&CINQUE");
+    //     }
+    //   }
+
 
     </script>
-    
-</body>
+  </body>
 </html>
