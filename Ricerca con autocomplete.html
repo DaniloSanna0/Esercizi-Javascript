@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <section>
+      <input type="text" placeholder="chi stai cercando?" id="ricerca" />
+      <div id="risultato"></div>
+    </section>
+
+    <script>
+        const input = document.getElementById("ricerca")
+        input.addEventListener("keyup", autocomplete)
+        const risultati = document.getElementById("risultati")
+      const nomi = [
+        "Luca",
+        "Marco",
+        "Giulia",
+        "Sara",
+        "Francesco",
+        "Alessia",
+        "Matteo",
+        "Chiara",
+        "Davide",
+        "Elena",
+      ];
+
+      function autocomplete(input){
+        console.log(input.target.value);
+        // console.log(input.key);
+        
+
+      }
+    </script>
+  </body>
 </html>
