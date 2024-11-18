@@ -31,8 +31,12 @@
       function autocomplete(input){
         console.log(input.target.value);
         // console.log(input.key);
-        
-
+        let nomiConsigliati = ""
+        const nomi = ["andrea", "anna", "giovanna"]
+        nomi.forEach((nome)=>{
+            nomiConsigliati += `<li>${nome}</li>`
+        })
+        risultati.innerHTML = `<ul>${nomiConsigliati}</ul>`
       }
     </script>
   </body>
