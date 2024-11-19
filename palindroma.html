@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        function palindroma(parola){
+            let array = parola.split('')
+            
+            // let arrayR = array.reverse()
+  
+            for (let i = 0; i < (array.length / 2); i++) {   
+                if(array[i] !== array[array.length - (1 + i)]){
+                    console.log(false);
+                    return false
+                }              
+            }
+            // let parolaR = arrayR.join('')
+
+            // if(parola === parolaR){
+            //     return true
+            // }else{
+            //     return false
+            // }
+            console.log(true);
+            return true
+            
+        }
+
+        palindroma('anna')
+        palindroma('albero')
+
+    </script>
+</body>
+</html>
