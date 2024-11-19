@@ -8,13 +8,13 @@
   <body>
     <section>
       <input type="text" placeholder="chi stai cercando?" id="ricerca" />
-      <div id="risultati"></div> <!-- Cambiato id a "risultati" -->
+      <div id="risultati"></div> 
     </section>
 
     <script>
       const input = document.getElementById("ricerca");
       input.addEventListener("keyup", autocomplete);
-      const risultati = document.getElementById("risultati"); // ID corretto
+      const risultati = document.getElementById("risultati");
       const nomi = [
         "Luca",
         "Marco",
@@ -43,8 +43,8 @@
 
       function seleziona(event) {
         const nomeSelezionato = event.target.innerText;
-        input.value = nomeSelezionato; // Aggiorna il valore dell'input
-        risultati.innerHTML = ""; // Pulisce la lista
+        input.value = nomeSelezionato; 
+        risultati.innerHTML = ""; 
       }
     </script>
   </body>
