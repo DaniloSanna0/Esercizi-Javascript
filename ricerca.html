@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ricerca">
+    <div id="lista"></div>
+    
+    <script>
+        let nomi = [
+            "Luca",
+            "Marco",
+            "Giulia",
+            "Sara",
+            "Francesco",
+            "Alessia",
+            "Matteo",
+            "Chiara",
+            "Davide",
+            "Elena",
+        ];
+        
+        const input = document.getElementById("ricerca");
+        const lista = document.getElementById("lista");
+
+        input.addEventListener("keyup", autocomplete);
+
+        function autocomplete(event) {
+            const valoreInput = event.target.value.toLowerCase();
+            let nomiConsigliati = "";
+
+            nomi.filter(nome => nome.toLowerCase().includes(valoreInput))
+                .forEach(nome => {
+                    nomiConsigliati += `<li onclick="seleziona(event)">${nome}</li>`;
+                });
+            
+            if (nomiConsigliati) {
+                lista.innerHTML = `<ul>${nomiConsigliati}</ul>`;
+            } else {
+                lista.innerHTML = ''; 
+            }
+        }
+
+        function seleziona(event) {
+            input.value = event.target.innerText; 
+            lista.innerHTML = ''; 
+        }
+    </script>
+</body>
+</html>
