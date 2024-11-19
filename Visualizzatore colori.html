@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="yellow" onmouseover="pickColor(event)" style="background-color: yellow;">y</div>
+        <div class="blue" onmouseover="pickColor(event)" style="background-color: blue;">b</div>
+        <div class="red" onmouseover="pickColor(event)" style="background-color: red;">r</div>
+    </section>
+    <br>
+    <br>
+    <section>
+        <div>al click di uno dei colori superiori si colorerà in basso</div>
+        <div id="xelement">x</div>
+    </section>
+    <script>
+        const xelement = document.getElementById("xelement")
+        function pickColor(event){
+            console.log(event.target.style.backgroundColor);
+            let style = event.target.style.backgroundColor
+            xelement.setAttribute("class", style)
+        }
+
+    </script>
+    <style>
+        .yellow{
+            background-color: yellow;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</body>
+</html>
