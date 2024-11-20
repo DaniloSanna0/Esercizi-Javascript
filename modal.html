@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="openModal">modal</button>
+    <div id="modal" class="modal">
+      <button id="closeModal">Chiudi</button>
+    </div>
+
+    <script>
+      const openModal = document.getElementById('openModal')
+      const closeModal = document.getElementById('closeModal')
+      const modal = document.getElementById('modal')
+      openModal.addEventListener("click", () => modal.style.display = 'block');
+      closeModal.onclick = () => modal.style.display = 'none'
+    </script>
+  </body>
+  <style>
+    .modal {
+      margin: 0 auto;
+      width: 30rem;
+      height: 30rem;
+      background-color: brown;
+      display: none;
+    }
+  </style>
+</html>
