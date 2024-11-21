@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <input id="input" type="text">
+  </head>
+  <body>
+    <input id="input" type="text" />
     <button id="send">Send</button>
 
     <script>
-        const input = document.getElementById("input")
-        const send = document.getElementById("send")
+      const input = document.getElementById("input");
+      const send = document.getElementById("send");
+      send.addEventListener("click", getValue);
 
-        send.addEventListener('click', getValue)
+      function onCreate() {
+        const todo = localStorage.getItem("todo");
+        if (todo) {
+          let div = document.createElement("div");
+          div.innerHTML = todo;
+          document.body.appendChild(div);
+          div.addEventListener("mouseover", deletex);
+        }
+      }
+      onCreate();
 
-          function getValue(){
-            console.log(input.value);
-            
-            let div = document.createElement("div")
-            div.innerHTML = input.value
-            document.body.appendChild(div);
-            localStorage.setItem(input.value)
+      function getValue() {
+        const value = input.value.trim();
+        if (value) {
+          localStorage.setItem("todo", value);
 
+          const existingDiv = document.querySelector("div");
+          if (existingDiv) {
+            existingDiv.remove();
           }
 
-        console.log(getValue());
-        
+          let div = document.createElement("div");
+          div.innerHTML = value;
+          document.body.appendChild(div);
+
+          div.addEventListener("mouseover", deletex);
+        }
+      }
+      const storage = localStorage.getItem("todo");
+
+      function deletex(event) {
+        localStorage.removeItem("todo");
+        event.target.remove();
+      }
     </script>
-</body>
+  </body>
 </html>
