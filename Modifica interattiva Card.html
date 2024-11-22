@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="input" type="text" placeholder="colore titolo">
+    <input id="input2" type="text" placeholder="link immagine">
+    <input id="input3" type="text" placeholder="padding">
+    <div id="card">
+        <div>titolo</div>
+        <img id="img" src="" alt="" >
+    </div>
+
+
+    
+    <script>
+        const input3 = document.getElementById("input3")
+        const input2 = document.getElementById("input2")
+        const input = document.getElementById("input")
+        const card = document.getElementById("card")
+        const img = document.getElementById("img")
+        
+        
+        input.addEventListener("keypress", () => {
+            card.style.color = input.value
+        })
+
+        
+        input2.addEventListener("keypress", () => {
+            img.src = input2.value
+            img.alt = input2.value
+        })
+        
+        
+        input3.addEventListener("keypress", () => {
+            card.style.padding = input3.value
+        })
+        
+
+    </script>
+</body>
+</html>
