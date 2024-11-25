@@ -40,17 +40,22 @@
 
       const searchBar = document.getElementById("search-bar");
       searchBar.addEventListener("keyup", (e) => {
-        if (e.target.value.startsWith("type:")) {
-          const value = e.target.value.replace("type:", "");
-          const pokemonFiltrati = pokemon.filter((pkmn) => {
-            return pkmn.type.indexOf(value)
-          });
+        if (!pokemon) return;
+        const query = e.target.value.trim().toLowerCase();
+        let pokemonFiltrati;
+
+        if (query.startsWith("type:")) {
+          const type = query.slice(5);
+          pokemonFiltrati = pokemon.filter((pkmn) =>
+            pkmn.type.some((t) => t.toLowerCase() === type)
+          );
         } else {
-          const pokemonFiltrati = pokemon.filter((pkmn) => {
-            return pkmn.name.english.startsWith(e.target.value);
-          });
-          generateCards(pokemonFiltrati);
+          pokemonFiltrati = pokemon.filter((pkmn) =>
+            pkmn.name.english.toLowerCase().startsWith(query)
+          );
         }
+
+        generateCards(pokemonFiltrati);
       });
     </script>
   </body>
