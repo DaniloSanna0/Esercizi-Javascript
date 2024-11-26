@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .colonna {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .task {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: grab;
+        }
+        .colonna.dragover {
+            background-color: #e6f7ff;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="colonna">
+            <h2>in coda</h2>
+            <div class="task" draggable="true">rispondere mail</div>
+            <div class="task" draggable="true">allenare gambe</div>
+            <div class="task" draggable="true">ricaricare telefono</div>
+            <div class="task" draggable="true">visita dentista</div>
+        </div>
+        <div class="colonna">
+            <h2>aperto</h2>
+        </div>
+        <div class="colonna">
+            <h2>in revisione</h2>
+        </div>
+        <div class="colonna">
+            <h2>completato</h2>
+        </div>
+    </div>
+    
+    <script>
+        const tasks = document.querySelectorAll(".task")
+        const colonne = document.querySelectorAll(".colonna")
+        let dragItem = null
+
+        tasks.forEach(task => {
+            task.addEventListener("dragstart", dragStart)
+            task.addEventListener("dragend", dragEnd)
+        })
+        colonne.forEach(colonna => {
+            colonna.addEventListener("dragover", dragOver)
+            colonna.addEventListener("dragenter", dragEnter)
+            colonna.addEventListener("dragleave", dragLeave)
+            colonna.addEventListener("drop", drop)
+        })
+//task
+        function dragStart(){
+            console.log("drag iniziato");
+            setTimeout(() => this.style.display = 'none')
+            dragItem = this
+        }
+
+        function dragEnd(){
+            console.log("drag terminato");
+            this.style.display = 'block'
+        }
+//colonna
+        function dragOver(e){
+            console.log("drag sopra");
+            e.preventDefault()
+        }
+
+        function dragEnter(){
+            console.log("drag entrato");
+        }
+
+        function dragLeave(){
+            console.log("drag uscito");
+        }
+
+        function drop(){
+            console.log("drag lasciato");
+            this.append(dragItem)
+        }
+
+    </script>
+</body>
+</html>
