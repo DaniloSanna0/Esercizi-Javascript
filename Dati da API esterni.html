@@ -11,7 +11,6 @@
     <img src="" alt="" id="img" style="max-width: 300px; display: block; margin-top: 20px;" />
 
     <script>
-      // Fetch the list of dog breeds
       fetch("https://dog.ceo/api/breeds/list/all")
         .then((response) => {
           if (!response.ok) {
@@ -21,44 +20,48 @@
         })
         .then((data) => {
           const select = document.querySelector("#dogs");
+
           
-          
-          Object.keys(data.message).forEach((razza) => {
+          const razze = Object.keys(data.message);
+          razze.forEach((razza) => {
             let option = document.createElement("option");
-            option.innerHTML = breed;
-            option.value = breed;
+            option.innerHTML = razza;
+            option.value = razza;
             select.appendChild(option);
           });
 
           
+          const firstRazza = razze[0]; 
+          fetchImage(firstRazza);
+
           select.addEventListener("change", () => {
             const selectedRazza = select.value;
-
-
-            fetch(`https://dog.ceo/api/breed/${selectedRazza}/images/random`)
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error(
-                    `Errore nel fetch dell'immagine! Status: ${response.status}`
-                  );
-                }
-                return response.json();
-              })
-              .then((imageData) => {
-                const img = document.querySelector("#img");
-                img.setAttribute("src", imageData.message);
-                img.setAttribute("alt", `Image of a ${selectedBreed}`);
-              })
-              .catch((error) => {
-                console.error("Errore durante il fetch dell'immagine:", error);
-              });
+            fetchImage(selectedRazza);
           });
-
-          console.log("Dati JSON ricevuti:", Object.keys(data.message));
         })
         .catch((error) => {
           console.error("Errore durante il fetch:", error);
         });
+
+      function fetchImage(razza) {
+        fetch(`https://dog.ceo/api/breed/${razza}/images/random`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `Errore nel fetch dell'immagine! Status: ${response.status}`
+              );
+            }
+            return response.json();
+          })
+          .then((imageData) => {
+            const img = document.querySelector("#img");
+            img.setAttribute("src", imageData.message);
+            img.setAttribute("alt", `Image of a ${razza}`);
+          })
+          .catch((error) => {
+            console.error("Errore durante il fetch dell'immagine:", error);
+          });
+      }
     </script>
   </body>
 </html>
