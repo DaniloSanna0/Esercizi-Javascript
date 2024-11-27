@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose a Dog</title>
+  </head>
+  <body>
+    <label for="dogs">Choose a dog!:</label>
+    <select name="dogs" id="dogs"></select>
+    <img src="" alt="" id="img" style="max-width: 300px; display: block; margin-top: 20px;" />
+
+    <script>
+      // Fetch the list of dog breeds
+      fetch("https://dog.ceo/api/breeds/list/all")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const select = document.querySelector("#dogs");
+          
+          
+          Object.keys(data.message).forEach((razza) => {
+            let option = document.createElement("option");
+            option.innerHTML = breed;
+            option.value = breed;
+            select.appendChild(option);
+          });
+
+          
+          select.addEventListener("change", () => {
+            const selectedRazza = select.value;
+
+
+            fetch(`https://dog.ceo/api/breed/${selectedRazza}/images/random`)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(
+                    `Errore nel fetch dell'immagine! Status: ${response.status}`
+                  );
+                }
+                return response.json();
+              })
+              .then((imageData) => {
+                const img = document.querySelector("#img");
+                img.setAttribute("src", imageData.message);
+                img.setAttribute("alt", `Image of a ${selectedBreed}`);
+              })
+              .catch((error) => {
+                console.error("Errore durante il fetch dell'immagine:", error);
+              });
+          });
+
+          console.log("Dati JSON ricevuti:", Object.keys(data.message));
+        })
+        .catch((error) => {
+          console.error("Errore durante il fetch:", error);
+        });
+    </script>
+  </body>
+</html>
