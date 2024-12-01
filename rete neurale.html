@@ -10,12 +10,34 @@
       function findMaximumTasks(task, m) {
         const taskCounts = {};
         task.forEach((t) => (taskCounts[t] = (taskCounts[t] || 0) + 1));
-        console.log(taskCounts);
+
+        const frequencies = Object.values(taskCounts).sort((a, b) => b - a);
+
+        function canComplete(tasksPerNode) {
+          let workersNeeded = 0;
+          for (const frequency of frequencies) {
+            workersNeeded += Math.ceil(frequency / tasksPerNode);
+          }
+          return workersNeeded <= m;
+        }
+
+        let left = 0,
+          right = Math.floor(task.length / m);
+        while (left < right) {
+          const mid = Math.floor((left + right + 1) / 2);
+          if (canComplete(mid)) {
+            left = mid;
+          } else {
+            right = mid - 1;
+          }
+        }
+
+        return left;
       }
 
       const task = [1, 2, 2, 1, 3, 1, 3];
       const m = 2;
-      console.log(findMaximumTasks(task, m)); 
+      console.log(findMaximumTasks(task, m));
     </script>
   </body>
 </html>
