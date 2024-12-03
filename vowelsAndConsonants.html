@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /*
+       * Complete the vowelsAndConsonants function.
+       * Print your output using 'console.log()'.
+       */
+      function vowelsAndConsonants(s) {
+        let lettere = s;
+        let vocali = "";
+        let consonanti = [];
+
+        for (const lettera of lettere) {
+          if (
+            lettera === "a" ||
+            lettera === "e" ||
+            lettera === "i" ||
+            lettera === "o" ||
+            lettera === "u"
+          ) {
+            vocali += lettera;
+            console.log(lettera);
+          } else {
+            consonanti.push(lettera);
+          }
+        }
+
+        for (let i = 0; i < consonanti.length; i++) {
+            console.log(consonanti[i]);
+            
+            
+        }
+        // console.log(vocali);
+        // console.log(consonanti);
+      }
+
+      vowelsAndConsonants("javascriptloops");
+    </script>
+  </body>
+</html>
