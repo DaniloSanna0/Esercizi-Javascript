@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getSecondLargest(nums) {
+        let result = nums[0]
+        for (let i = 0; i < nums.length; i++) {
+               if (nums[i] >= 1 && nums[i] <= 11) {
+            if (nums[i] > result) {
+                result = nums[i]
+            }
+            
+           }
+        }
+
+        for (const i in nums) {
+                if (i >= 0 && i <= 100) {
+
+                   
+                    
+                    return result - 1
+
+                    
+                }
+            }
+      }
+
+      getSecondLargest([10, 9, 9, 8, 8, 11, 8, 0, 9, 1])
+    </script>
+  </body>
+</html>
