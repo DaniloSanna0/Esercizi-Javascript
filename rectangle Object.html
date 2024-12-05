@@ -8,19 +8,48 @@
   <body>
     <script>
       function Rectangle(a, b) {
-        const lunghezza = a
-        const larghezza = b
-        const perimetro = 2 * (a+b)
-        const area = a * b
-        
+        const lunghezza = a;
+        const larghezza = b;
+        const perimetro = 2 * (a + b);
+        const area = a * b;
+
         const object = {
-            length : lunghezza,
-            width : larghezza,
-            perimeter : perimetro,
-            area : area
-        }
-        return object
+          length: lunghezza,
+          width: larghezza,
+          perimeter: perimetro,
+          area: area,
+        };
+        return object;
       }
+
+      function getCount(objects) {
+
+        let acc = 0
+        if (objects[0]<=10 && objects[0]>=5) {
+            for (let i = 1; i < objects.length; i++) {
+                if (objects[i].x === objects[i].y && objects[i].x <=100 && objects[i].x >=1) {
+                    acc ++
+                }
+            }
+        }
+        console.log(acc);
+        
+        return acc
+      }
+
+      const objects = [
+    7, // Numero di oggetti
+    { x: 1, y: 1 }, // Oggetto 1
+    { x: 2, y: 2 }, // Oggetto 2
+    { x: 3, y: 3 }, // Oggetto 3
+    { x: 4, y: 4 }, // Oggetto 4
+    { x: 4, y: 5 }, // Oggetto 5
+    { x: 6, y: 6 }, // Oggetto 6
+    { x: 7, y: 8 }  // Oggetto 7
+];
+
+
+      getCount(objects)
     </script>
   </body>
 </html>
