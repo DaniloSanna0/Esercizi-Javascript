@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Poligon {
+        constructor(tre, quattro, cinque) {
+          this.tre = tre;
+          this.quattro = quattro;
+          this.cinque = cinque;
+        }
+
+        perimeter() {
+          return this.tre + this.quattro + this.cinque;
+        }
+      }
+
+      class Polygon {
+        constructor(sides) {
+          this.sides = sides; 
+        }
+
+        perimeter() {
+          return this.sides.reduce((acc, side) => acc + side, 0);
+        }
+      }
+    </script>
+  </body>
+</html>
