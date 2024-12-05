@@ -23,33 +23,36 @@
       }
 
       function getCount(objects) {
-
-        let acc = 0
-        if (objects[0]<=10 && objects[0]>=5) {
-            for (let i = 1; i < objects.length; i++) {
-                if (objects[i].x === objects[i].y && objects[i].x <=100 && objects[i].x >=1) {
-                    acc ++
-                }
+        let acc = 0;
+        if (objects[0] <= 10 && objects[0] >= 5) {
+          for (let i = 1; i < objects.length; i++) {
+            if (
+              objects[i].x === objects[i].y &&
+              objects[i].x <= 100 &&
+              objects[i].x >= 1 &&
+              objects[i].y <= 100 &&
+              objects[i].y >= 1
+            ) {
+              acc++;
             }
+          }
         }
-        console.log(acc);
-        
-        return acc
+
+        return acc;
       }
 
       const objects = [
-    7, // Numero di oggetti
-    { x: 1, y: 1 }, // Oggetto 1
-    { x: 2, y: 2 }, // Oggetto 2
-    { x: 3, y: 3 }, // Oggetto 3
-    { x: 4, y: 4 }, // Oggetto 4
-    { x: 4, y: 5 }, // Oggetto 5
-    { x: 6, y: 6 }, // Oggetto 6
-    { x: 7, y: 8 }  // Oggetto 7
-];
+        7, // Numero di oggetti
+        { x: 1, y: 1 }, // Oggetto 1
+        { x: 2, y: 2 }, // Oggetto 2
+        { x: 3, y: 3 }, // Oggetto 3
+        { x: 4, y: 4 }, // Oggetto 4
+        { x: 4, y: 5 }, // Oggetto 5
+        { x: 6, y: 6 }, // Oggetto 6
+        { x: 7, y: 8 }, // Oggetto 7
+      ];
 
-
-      getCount(objects)
+      getCount(objects);
     </script>
   </body>
 </html>
