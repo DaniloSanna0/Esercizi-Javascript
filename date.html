@@ -8,10 +8,11 @@
   <body>
     <script>
       function getDayName(dateString) {
+        const time = new Date(dateString);
         let dayName;
         const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         
-        dayName = weekday[dateString.getDay()]
+        dayName = weekday[time.getDay()]
 
         return dayName;
       }
