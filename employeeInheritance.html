@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Employee(title) {
+        this.title = title;
+      }
+
+      Employee.prototype.setTitle = function (title) {
+        this.title = title; 
+      };
+
+      Employee.prototype.getTitle = function () {
+        return this.title; 
+      };
+
+      function Engineer(title, isManager) {
+        Employee.call(this, title); 
+        this.isManager = isManager;
+      }
+
+      Engineer.prototype = Object.create(Employee.prototype);
+      Engineer.prototype.constructor = Engineer; 
+
+      Engineer.prototype.setIsManager = function (isManager) {
+        this.isManager = isManager; 
+      };
+
+      Engineer.prototype.getIsManager = function () {
+        return this.isManager; 
+      };
+
+      const engineer = new Engineer("Software Engineer", false);
+      console.log(engineer.getTitle()); 
+      console.log(engineer.getIsManager());
+
+      engineer.setTitle("Senior Software Engineer");
+      engineer.setIsManager(true);
+
+      console.log(engineer.getTitle()); 
+      console.log(engineer.getIsManager()); 
+    </script>
+  </body>
+</html>
