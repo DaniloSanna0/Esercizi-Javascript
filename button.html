@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="button.html" type="text/css">
+        <style>
+            #id{
+                width: 96px;
+                height: 48px;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <button id="btn">0</button>
+        <script >
+            const button = document.querySelector('#btn')
+            button.addEventListener('click',  () => {
+        button.innerHTML = parseInt(button.innerHTML) + 1; 
+    });
+        </script>
+    </body>
+</html>
