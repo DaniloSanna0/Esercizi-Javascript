@@ -38,7 +38,8 @@
         }
 
         cloneImage(){
-            return new Image(this.url,this.size)
+            // return new Image(this.url,this.size)
+            return new Image(this.url, new Size(this.size.width, this.size.height));
         }
       }
     </script>
