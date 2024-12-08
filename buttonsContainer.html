@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="buttonsContainer.html" type="text/css" />
+    <style>
+      #btns {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        margin: 0 auto;
+      }
+
+      button {
+        width: 100%;
+        height: 48px;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="btns">
+      <button id="btn1">1</button>
+      <button id="btn2">2</button>
+      <button id="btn3">3</button>
+      <button id="btn4">4</button>
+      <button id="btn5">5</button>
+      <button id="btn6">6</button>
+      <button id="btn7">7</button>
+      <button id="btn8">8</button>
+      <button id="btn9">9</button>
+    </div>
+    <script>
+      const btn5 = document.getElementById("btn5");
+
+      btn5.addEventListener("click", () => {
+        const btn1 = document.getElementById("btn1").innerHTML;
+        const btn2 = document.getElementById("btn2").innerHTML;
+        const btn3 = document.getElementById("btn3").innerHTML;
+        const btn6 = document.getElementById("btn6").innerHTML;
+        const btn9 = document.getElementById("btn9").innerHTML;
+        const btn8 = document.getElementById("btn8").innerHTML;
+        const btn7 = document.getElementById("btn7").innerHTML;
+        const btn4 = document.getElementById("btn4").innerHTML;
+
+        document.getElementById("btn1").innerHTML = btn4;
+        document.getElementById("btn2").innerHTML = btn1;
+        document.getElementById("btn3").innerHTML = btn2;
+        document.getElementById("btn6").innerHTML = btn3;
+        document.getElementById("btn9").innerHTML = btn6;
+        document.getElementById("btn8").innerHTML = btn9;
+        document.getElementById("btn7").innerHTML = btn8;
+        document.getElementById("btn4").innerHTML = btn7;
+      });
+    </script>
+  </body>
+</html>
