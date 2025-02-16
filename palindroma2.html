@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isPalindrome(x) {
+        console.log(x.length);
+
+        x = x.toUpperCase();
+        console.log(x);
+
+        for (let i = 0; i < (x.length - 1) / 2; i++) {
+          if (x[i] != x[x.length - i - 1]) {
+            console.log(false);
+
+            return false;
+          }
+        }
+        console.log(true);
+        return true;
+      }
+      // isPalindrome("a")
+      isPalindrome("aba");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function longestConsec(strarr, k) {
+        if (k <= 0 || k > strarr.length || strarr.length === 0) {
+          return "";
+        }
+
+        let maxStr = "";
+        let maxLen = 0;
+
+        for (let i = 0; i <= strarr.length - k; i++) {
+          let concatStr = strarr.slice(i, i + k).join(""); // Unisce k stringhe consecutive
+          if (concatStr.length > maxLen) {
+            maxLen = concatStr.length;
+            maxStr = concatStr;
+          }
+        }
+
+        return maxStr;
+      }
+      console.log(strarr.slice(0, 2)); // ["tree", "foling"]
+      console.log(strarr.slice(1, 3)); // ["foling", "trashy"]
+      console.log(strarr.slice(2, 4)); // ["trashy", "blue"]
+      console.log(strarr.slice(3, 5)); // ["blue", "abcdef"]
+      console.log(strarr.slice(4, 6)); // ["abcdef", "uvwxyz"]
+
+      longestConsec(
+        ["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"],
+        2
+      );
+    </script>
+  </body>
+</html>
