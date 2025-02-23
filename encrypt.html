@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function encrypt(text, n) {
+    if (!text || n <= 0) return text;
+
+    for (let i = 0; i < n; i++) {
+        let uno = "";
+        let due = "";
+
+        for (let j = 0; j < text.length; j++) {
+            if (j % 2 === 0) {
+                uno += text.charAt(j);
+            } else {
+                due += text.charAt(j);
+            }
+        }
+        text = due.concat(uno);
+    }
+    
+    return text;
+}
+
+function decrypt(encryptedText, n) {
+    if (!encryptedText || n <= 0) return encryptedText;
+
+    let length = encryptedText.length;
+    for (let i = 0; i < n; i++) {
+        let half = Math.floor(length / 2);
+        let odds = encryptedText.slice(0, half);
+        let evens = encryptedText.slice(half);
+        let decrypted = "";
+
+        for (let j = 0; j < half; j++) {
+            decrypted += evens.charAt(j) + (odds.charAt(j) || "");
+        }
+        
+        if (length % 2 !== 0) {
+            decrypted += evens.charAt(half);
+        }
+
+        encryptedText = decrypted;
+    }
+
+    return encryptedText;
+}
+
+      encrypt("This is a test!", 1)
+    </script>
+  </body>
+</html>
