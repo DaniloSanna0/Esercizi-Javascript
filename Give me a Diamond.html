@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+  function diamond(n) {
+    if (n < 1 || n % 2 === 0) {
+        return null;
+    }
+    
+    let string = "";
+    let mid = n / 2;
+    
+    for (let i = 0; i < mid; i++) {
+        let spaces = " ".repeat(mid - i);
+        let stars = "*".repeat(2 * i + 1);
+        string += spaces + stars + "\n";
+    }
+
+    for (let i = mid - 1; i >= 0; i--) {
+        let spaces = " ".repeat(mid - i);
+        let stars = "*".repeat(2 * i);
+        string += spaces + stars + "\n";
+    }
+    
+    return string;
+}
+
+      diamond(5)
+    </script>
+  </body>
+</html>
